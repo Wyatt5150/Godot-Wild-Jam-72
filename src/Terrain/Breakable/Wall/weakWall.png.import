@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch0riwkrqwvw8"
-path="res://.godot/imported/weakFloor.png-9ece97938cf26876c482e95fd8bb1e0b.ctex"
+uid="uid://cg07hmoamycvw"
+path="res://.godot/imported/weakWall.png-155f590cbf07b0d3e61aaa06fe92b3db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/Breakable/weakFloor.png"
-dest_files=["res://.godot/imported/weakFloor.png-9ece97938cf26876c482e95fd8bb1e0b.ctex"]
+source_file="res://Terrain/Breakable/Wall/weakWall.png"
+dest_files=["res://.godot/imported/weakWall.png-155f590cbf07b0d3e61aaa06fe92b3db.ctex"]
 
 [params]
 
