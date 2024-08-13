@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2uln2c8j6bcv"]
+[gd_scene load_steps=6 format=3 uid="uid://d2uln2c8j6bcv"]
 
 [ext_resource type="Texture2D" uid="uid://cg07hmoamycvw" path="res://Terrain/Breakable/Wall/weakWall.png" id="1_ddqu3"]
 [ext_resource type="Script" path="res://Terrain/Breakable/Wall/weakWall.gd" id="1_klvck"]
@@ -8,6 +8,8 @@ size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yymum"]
 size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd6d6"]
 
 [node name="WeakWall" type="ColorRect"]
 clip_children = 2
@@ -29,11 +31,20 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
 shape = SubResource("RectangleShape2D_r5k4u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerNearby" type="Area2D" parent="."]
 position = Vector2(25, 25)
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNearby"]
 shape = SubResource("RectangleShape2D_yymum")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Destroy" type="Area2D" parent="."]
+position = Vector2(25, 25)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy"]
+shape = SubResource("RectangleShape2D_xd6d6")
+
+[connection signal="body_entered" from="PlayerNearby" to="." method="_on_player_nearby_body_entered"]
+[connection signal="body_exited" from="PlayerNearby" to="." method="_on_player_nearby_body_exited"]
+[connection signal="body_entered" from="Destroy" to="." method="_on_destroy_body_entered"]
