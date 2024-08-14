@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4v14e0jb15mt"
-path="res://.godot/imported/crackTexture.png-9f91e6de5e760ab1b64d893f56db97cd.ctex"
+uid="uid://ch0riwkrqwvw8"
+path="res://.godot/imported/weakFloor.png-407219a74984d089c87ab409b5953798.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/Breakable/crackTexture.png"
-dest_files=["res://.godot/imported/crackTexture.png-9f91e6de5e760ab1b64d893f56db97cd.ctex"]
+source_file="res://Terrain/Breakable/Floor/weakFloor.png"
+dest_files=["res://.godot/imported/weakFloor.png-407219a74984d089c87ab409b5953798.ctex"]
 
 [params]
 

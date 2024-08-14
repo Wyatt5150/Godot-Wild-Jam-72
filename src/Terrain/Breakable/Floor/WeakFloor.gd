@@ -38,7 +38,7 @@ func _ready():
 	$PlayerDetector.position.x = size.x/2
 	
 	self_modulate.a = 0
-	clip_children=0
+	set_clip_children_mode(CLIP_CHILDREN_DISABLED)
 	pass # Replace with function body.
 
 func _process(delta):
@@ -98,12 +98,12 @@ func _on_timer_timeout():
 		respawn()
 	pass # Replace with function body.
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	if timer.is_stopped():
 		respawn()
 	pass # Replace with function body.
 
 
-func _on_player_detector_body_exited(body):
+func _on_player_detector_body_exited(_body):
 	player = null
 	pass # Replace with function body.

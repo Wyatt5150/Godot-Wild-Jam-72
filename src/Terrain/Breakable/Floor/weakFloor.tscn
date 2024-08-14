@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr8ikhcgcuwen"]
 
-[ext_resource type="Script" path="res://Terrain/Breakable/WeakFloor.gd" id="1_u6su2"]
-[ext_resource type="Texture2D" uid="uid://ch0riwkrqwvw8" path="res://Terrain/Breakable/weakFloor.png" id="2_ogot0"]
+[ext_resource type="Script" path="res://Terrain/Breakable/Floor/WeakFloor.gd" id="1_u6su2"]
+[ext_resource type="Texture2D" uid="uid://ch0riwkrqwvw8" path="res://Terrain/Breakable/Floor/weakFloor.png" id="2_ogot0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0g5w"]
 size = Vector2(50, 19)
@@ -12,7 +12,7 @@ size = Vector2(50, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp18c"]
 size = Vector2(50, 10)
 
-[node name="Breakable" type="ColorRect"]
+[node name="WeakFloor" type="ColorRect"]
 offset_right = 525.0
 offset_bottom = 34.0
 color = Color(0, 0, 0, 1)
@@ -24,12 +24,10 @@ texture_repeat = 2
 texture = ExtResource("2_ogot0")
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 
-[node name="Terrain" type="RigidBody2D" parent="."]
+[node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(25, 0)
 collision_layer = 2
 collision_mask = 0
-mass = 0.01
-gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
 position = Vector2(0, 9.5)
