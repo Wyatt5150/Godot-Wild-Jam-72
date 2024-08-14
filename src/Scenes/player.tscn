@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_l8kvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cl8"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nx1m2"]
 animations = [{
@@ -21,9 +21,10 @@ animations = [{
 script = ExtResource("1_l8kvu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(32, -32)
 shape = SubResource("RectangleShape2D_v7cl8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(32, -32)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_nx1m2")

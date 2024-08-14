@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkht2mnbarty4"]
+
+[ext_resource type="Script" path="res://Scripts/AudioButton.gd" id="1_2pel1"]
+
+[node name="AudioButton" type="Panel"]
+anchors_preset = -1
+anchor_bottom = 0.119
+offset_right = 704.0
+offset_bottom = -0.520004
+script = ExtResource("1_2pel1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = -16.0
+text = "AUDIO LABEL"
+autowrap_mode = 2

@@ -1,15 +1,9 @@
 extends CharacterBody2D
 
-
-var darkLightScale = 0.0
-var darkMax = -2.0
-var lightMax = 2.0
-const darkLightMaxUpgradeStrength = .2
-const darkLightMaxBoundary = 6.0
-
-var scaleSpeed = 1.0
-const scaleSpeedUpgradeStrength = .1
-const scaleSpeedMax = 2.0
+var weight = 0
+var darkMax = -2
+var lightMax = 2
+var weightLock = 0.0
 
 var hasDashUpgrade = true
 var isDashing = false
@@ -24,16 +18,16 @@ var timeOffFloor = 0.0
 var jumpLock = false
 var jumpBuffer = 0.0
 const coyoteTime = 0.2
-const jumpVelocity = -400.0
+const jumpVelocity = -500.0
 const jumpBufferTime = 0.2
 
 const SPEED = 300.0
-
 const maxSpeed = 1200.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	PullData()
 
 func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
@@ -42,54 +36,49 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	LeftRightHandler(delta, direction)
+	
 	DarkLightHandler(delta)
+	
+	print("Local: ", weight)
+	print("Modif: ", PlayerData.GetWeightModifier())
+	
 	JumpHandler(delta)
 	DashHandler(delta, direction)
 	
 	move_and_slide()
-	
 
 func DarkLightHandler(delta):
 	if !is_on_floor(): return 0
-	var dLock = false 
-	var lLock = false
+	weightLock -= delta
+	if weightLock > 0:
+		return 0
 	
 	if Input.is_action_pressed("Darken"):
-		darkLightScale -= (scaleSpeed * delta)
-		darkLightScale = max(darkMax, darkLightScale)
-		dLock = true
-	if Input.is_action_pressed("Lighten"):
-		lLock = true
-		darkLightScale += (scaleSpeed * delta)
-		darkLightScale = min(lightMax, darkLightScale)
+		weight = max(darkMax, weight-1)
+		weightLock = PlayerData.GetChangeSpeed()
+		PlayerData.Set_Weight(weight)
+	elif Input.is_action_pressed("Lighten"):
+		weight = min(lightMax, weight+1)
+		weightLock = PlayerData.GetChangeSpeed()
+		PlayerData.SetWeight(weight)
 	
-	if Input.is_action_just_released("Darken") and !lLock:
-		darkLightScale = ceilf(darkLightScale)
-	
-	if Input.is_action_just_released("Lighten") and !dLock:
-		darkLightScale = floorf(darkLightScale) 
-	
-	print(darkLightScale)
+	PlayerData.SetWeight(weight)
 
 func DashHandler(delta, direction):
 	if !hasDashUpgrade: return 0
 	
 	dashTimer -= delta
-	if dashTimer < 0.0:
-		isDashing = false
+	if dashTimer < 0.0: isDashing = false
+	if is_on_wall(): isDashing = false
 	
-	if !isDashing and is_on_floor():
-		canDash = true
+	if !isDashing and is_on_floor(): canDash = true
 	
 	if !canDash: return 0
 	if !Input.is_action_just_pressed("Dash"): return 0
 	
-	# Determine Dash Speed Using Cube Root Of LightDark Scale
-	var dashSpeed = dashBaseSpeed * pow(1.2, darkLightScale)
+	# Determine Dash Speed Using LightDark Scale
+	var dashSpeed = dashBaseSpeed * PlayerData.Get_Weight_Modifier()
 	dashSpeed = clampf(dashSpeed, dashMinSpeed, dashMaxSpeed)
-	
-	print(dashSpeed)
-	print(darkLightScale)
 	
 	#Apply Dash Speed
 	velocity.x += (dashSpeed * direction)
@@ -99,6 +88,7 @@ func DashHandler(delta, direction):
 	canDash = false
 
 func JumpHandler(delta):
+	
 	jumpBuffer -= delta
 	if is_on_floor():
 		timeOffFloor = 0.0
@@ -117,9 +107,9 @@ func JumpHandler(delta):
 	if timeOffFloor < coyoteTime:
 		Jump()
 
-func Jump():
-	velocity.y += jumpVelocity
-	jumpLock = true
+func Jump(): 
+		velocity.y += jumpVelocity * PlayerData.Get_Weight_Modifier()
+		jumpLock = true
 
 func LeftRightHandler(delta, direction):
 	if isDashing: return 0
@@ -130,22 +120,14 @@ func LeftRightHandler(delta, direction):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func UpgradeHandler(upgrade_type):
-	match upgrade_type:
-		"DarkMax":
-			darkMax -= darkLightMaxUpgradeStrength
-			darkMax = max(darkMax, darkLightMaxBoundary)
-		"LightMax":
-			lightMax += darkLightMaxUpgradeStrength
-			lightMax = min(lightMax, darkLightMaxBoundary)
-		"ScaleSpeed":
-			scaleSpeed += scaleSpeedUpgradeStrength
-			scaleSpeed = min(scaleSpeed, scaleSpeedMax)
-		"Dash":
-			hasDashUpgrade = true
+	PlayerData.UpgradeHandler(upgrade_type)
+	PullData()
 
-# Dark < 0 < Light
-func GetLightScale():
-	return floor(self.darkLightScale)
+func PullData():
+	self.hasDashUpgrade = PlayerData.HasDash()
+	self.weight = PlayerData.GetWeight()
+	self.darkMax = PlayerData.GetDarkMax()
+	self.lightMax = PlayerData.GetLightMax()
 
 func GetDashState():
 	return self.isDashing

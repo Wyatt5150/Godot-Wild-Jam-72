@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GWJ72"
-run/main_scene="res://Levels/test.tscn"
+run/main_scene="res://Levels/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Settings="*res://AutoLoads/settings.tscn"
+PlayerData="*res://AutoLoads/player_data.gd"
 
 [display]
 
