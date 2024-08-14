@@ -51,14 +51,25 @@ func _physics_process(delta):
 
 func DarkLightHandler(delta):
 	if !is_on_floor(): return 0
+	var dLock = false 
+	var lLock = false
 	
 	if Input.is_action_pressed("Darken"):
 		darkLightScale -= (scaleSpeed * delta)
 		darkLightScale = max(darkMax, darkLightScale)
-	
+		dLock = true
 	if Input.is_action_pressed("Lighten"):
+		lLock = true
 		darkLightScale += (scaleSpeed * delta)
 		darkLightScale = min(lightMax, darkLightScale)
+	
+	if Input.is_action_just_released("Darken") and !lLock:
+		darkLightScale = ceilf(darkLightScale)
+	
+	if Input.is_action_just_released("Lighten") and !dLock:
+		darkLightScale = floorf(darkLightScale) 
+	
+	print(darkLightScale)
 
 func DashHandler(delta, direction):
 	if !hasDashUpgrade: return 0
@@ -134,7 +145,7 @@ func UpgradeHandler(upgrade_type):
 
 # Dark < 0 < Light
 func GetLightScale():
-	return self.darkLightScale
+	return floor(self.darkLightScale)
 
 func GetDashState():
 	return self.isDashing
