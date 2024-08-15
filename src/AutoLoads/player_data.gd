@@ -23,7 +23,7 @@ func GetWeight():
 func GetWeightModifier():
 	return pow(1.2, weight)
 
-func Get_Dark_Max():
+func GetDarkMax():
 	return self.darkMax
 
 func GetLightMax():
@@ -45,3 +45,7 @@ func UpgradeHandler(upgrade_type):
 			changeSpeed = max(self.changeSpeed - changeSpeedUpgradeStrength, self.changeSpeedMin)
 		"Dash":
 			hasDashUpgrade = true
+
+func GetColor(weight):
+	var c = (float)(weight - darkMaxMax)/ (float)(lightMaxMax-darkMaxMax)
+	return Color(c,c,c,1)

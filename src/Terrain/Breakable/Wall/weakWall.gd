@@ -9,6 +9,7 @@ var dir
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	modulate = PlayerData.GetColor(wallStrength)
 	dir = 1
 	destroyed = false
 	player = null
@@ -52,7 +53,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player != null:
-		if hitboxActive != (!player.GetDashState() or player.GetLightScale() > wallStrength):
+		if hitboxActive != (!player.GetDashState() or PlayerData.GetWeight() > wallStrength):
 			hitboxActive = !hitboxActive
 			$Terrain/CollisionShape2D.set_deferred("disabled", !hitboxActive)
 			$Destroy/CollisionShape2D.set_deferred("disabled", hitboxActive)
@@ -75,7 +76,7 @@ func destroy():
 	pass
 
 func _on_destroy_body_entered(body):
-	if body.GetDashState() and body.GetLightScale() <= wallStrength:
+	if body.GetDashState() and PlayerData.GetWeight() <= wallStrength:
 		destroy()
 	pass # Replace with function body.
 

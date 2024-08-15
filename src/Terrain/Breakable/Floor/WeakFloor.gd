@@ -16,8 +16,7 @@ var shake:float
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = null
-	# c = (weightLimit+maxDark)/(maxDark+maxLight)
-	# modulate = Color(c,c,c)
+	modulate = PlayerData.GetColor(weightLimit)
 	shake = 0
 	size.x = max(size.x ,50)
 	timer = $Timer
@@ -43,7 +42,7 @@ func _ready():
 
 func _process(delta):
 	if player != null:
-		if player.GetLightScale()<=weightLimit:
+		if PlayerData.GetWeight()<=weightLimit:
 			destroy()
 		
 	if respawning:
@@ -77,10 +76,10 @@ func destroy():
 
 func _on_player_detector_body_entered(body):
 	player = body
-	if body.GetLightScale()<=weightLimit:
+	if PlayerData.GetWeight()<=weightLimit:
 		destroy()
 	else:
-		shake = max(6-body.GetLightScale()+weightLimit,1)
+		shake = max(6-PlayerData.GetWeight()+weightLimit,1)
 	pass # Replace with function body.
 
 # RESPAWN STUFF

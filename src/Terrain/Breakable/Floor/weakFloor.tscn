@@ -17,7 +17,7 @@ offset_right = 525.0
 offset_bottom = 34.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u6su2")
-respawnTime = 4.0
+respawnTime = 1.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture_repeat = 2

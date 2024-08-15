@@ -39,9 +39,6 @@ func _physics_process(delta):
 	
 	DarkLightHandler(delta)
 	
-	print("Local: ", weight)
-	print("Modif: ", PlayerData.GetWeightModifier())
-	
 	JumpHandler(delta)
 	DashHandler(delta, direction)
 	
@@ -77,7 +74,7 @@ func DashHandler(delta, direction):
 	if !Input.is_action_just_pressed("Dash"): return 0
 	
 	# Determine Dash Speed Using LightDark Scale
-	var dashSpeed = dashBaseSpeed * PlayerData.Get_Weight_Modifier()
+	var dashSpeed = dashBaseSpeed * PlayerData.GetWeightModifier()
 	dashSpeed = clampf(dashSpeed, dashMinSpeed, dashMaxSpeed)
 	
 	#Apply Dash Speed
@@ -108,7 +105,7 @@ func JumpHandler(delta):
 		Jump()
 
 func Jump(): 
-		velocity.y += jumpVelocity * PlayerData.Get_Weight_Modifier()
+		velocity.y += jumpVelocity * PlayerData.GetWeightModifier()
 		jumpLock = true
 
 func LeftRightHandler(delta, direction):
