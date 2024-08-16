@@ -1,59 +1,69 @@
 # ADD THIS NODE AS A CHILD OF ANY LEVEL
 extends Node2D
 
-# key: area2d, value: next scene
-@export var transitions : Dictionary
+@export var toScenes : Array[String]
 
-# key: prev scene, value: node at spawn location
-@export var spawns : Dictionary	= {"default": null}
+@export var fromScenes : Array[String]
 
 # objects connected to save data
-@export var objects : Array	
-
+var objects : Array
 var nextScene
-var player
+var timer
+var camera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer = Timer.new()
+	add_child(timer)
+	timer.timeout.connect(ToNextRoom)
+	
 	# load objects
+	objects = $Objects.get_children()
 	var saveData = SaveData.GetRoomSave(self)
 	for i in objects.size():
 		if !saveData[i]:
 			objects[i].queue_free()
 			
-	# set up out going transitions
+	# set up transitions
 	nextScene = null
-	for area in transitions.keys():
+	var i = 0
+	for area in $Transitions.get_children():
 		area.set_collision_mask(1)
 		area.set_collision_layer(0)
-		area.area_entered.connect(EnteredTransition.bind(transitions[area]))
+		area.body_entered.connect(EnteredTransition.bind(i))
+		
+		i+=1
 	
 	# spawn player
-	player = load("res://Scenes/player.tscn").instance()
-	if spawns.has(PlayerData.curScene):
-		player.position = spawns[PlayerData.curScene].position
+	var player = load("res://Scenes/player.tscn").instantiate()
+	self.add_child(player)
+	if PlayerData.curScene == null:
+		i = 0
 	else:
-		if spawns["default"] == null:
-			player.position = spawns[spawns.keys()[0]].position
-		else:
-			player.position = spawns["default"].position
-		print(self.name, " does not have a spawn point for ", PlayerData.curScene)
-		
-	PlayerData.curScene = self.name
+		i = fromScenes.find(PlayerData.curScene)
+	player.position = $Spawns.get_child(i).position
+	
+	PlayerData.curScene = self.name.to_lower()
+	
+	# spawn camera
+	camera = load("res://Scenes/camera.tscn").instantiate()
+	self.add_child(camera)
+	camera.player = player
+	camera.position = player.position
 	
 	# start
-	
 	pass # Replace with function body.
 
-func EnteredTransition(next):
-	nextScene = next
+func EnteredTransition(_player, ind):
+	for i in objects.size():
+		if objects[i] == null:
+			SaveData.SetRoomData(self, i, false)
+	nextScene = toScenes[ind]
+	timer.start(.2)
+	camera.blackoutTarget = 1
 	# lock player controls
 	pass
 
 func ToNextRoom():
-	get_tree().change_scene_to_file(transitions[nextScene])
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	get_tree().change_scene_to_file("res://Levels/"+nextScene+".tscn")
 	pass

@@ -5,6 +5,9 @@ var roomSaveData:Dictionary
 func _ready():
 	pass # Replace with function body.
 
+func reset():
+	roomSaveData = {}
+
 func GetRoomSave(room):
 	if !roomSaveData.has(room.name):
 		var arr = []
@@ -13,3 +16,6 @@ func GetRoomSave(room):
 		roomSaveData[room.name] = arr
 
 	return roomSaveData[room.name]
+
+func SetRoomData(room, index, val):
+	roomSaveData[room.name][index] = val

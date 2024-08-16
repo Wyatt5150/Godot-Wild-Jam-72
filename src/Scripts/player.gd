@@ -53,7 +53,7 @@ func DarkLightHandler(delta):
 	if Input.is_action_pressed("Darken"):
 		weight = max(darkMax, weight-1)
 		weightLock = PlayerData.GetChangeSpeed()
-		PlayerData.Set_Weight(weight)
+		PlayerData.SetWeight(weight)
 	elif Input.is_action_pressed("Lighten"):
 		weight = min(lightMax, weight+1)
 		weightLock = PlayerData.GetChangeSpeed()
