@@ -1,5 +1,7 @@
 extends Node
 
+var curScene
+
 var weight:int = 0
 
 var darkMax:int = -1
