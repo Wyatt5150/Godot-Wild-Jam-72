@@ -20,7 +20,6 @@ func _ready():
 	# load objects
 	objects = $Objects.get_children()
 	var saveData = SaveData.GetRoomSave(self)
-	print(saveData)
 	for i in objects.size():
 		if !saveData[i]:
 			objects[i].queue_free()

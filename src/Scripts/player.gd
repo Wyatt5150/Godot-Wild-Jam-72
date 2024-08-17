@@ -30,8 +30,10 @@ const maxSpeed = 1200.0
 var direction = Vector2(0.0, 0.0)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var sprite
 
 func _ready():
+	sprite =  $Sprite2D
 	$PlayerHud/Control/SettingsButton.pressed.connect(Callable(Settings, "Open"))
 	PullData()
 
@@ -67,7 +69,7 @@ func DarkLightHandler(delta):
 	
 	PlayerData.SetWeight(weight)
 	HandleMeter()
-	modulate = PlayerData.GetColor(weight)
+	sprite.modulate = PlayerData.GetColor(weight)
 
 func DashHandler(delta):
 	if !hasDashUpgrade: return 0
@@ -135,7 +137,7 @@ func PullData():
 	self.darkMax = PlayerData.GetDarkMax()
 	self.lightMax = PlayerData.GetLightMax()
 	HandleMeter()
-	modulate = PlayerData.GetColor(weight)
+	sprite.modulate = PlayerData.GetColor(weight)
 
 func GetDashState():
 	return self.isDashing
