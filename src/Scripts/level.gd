@@ -1,9 +1,18 @@
-# ADD THIS NODE AS A CHILD OF ANY LEVEL
+# attach this script to levels
+
+# name all the levels that this level is connected to in Connected Scenes
+# level name is the scene's file name not including .tscn
+# the connected scenes must be in the Levels folder
+
+# colliders to exit the level should be children of Transitions
+# nodes marking where the player will spawn into the level should be children of Spawns
+# children of Transitions and Spawns should be ordered so the children correspond with the order in Connected Scenes
+
+# Put all powerups and breakable walls in Objects
+
 extends Node2D
 
-@export var toScenes : Array[String]
-
-@export var fromScenes : Array[String]
+@export var connectedScenes : Array[String]
 
 # objects connected to save data
 var objects : Array
@@ -38,9 +47,9 @@ func _ready():
 	var player = load("res://Scenes/player.tscn").instantiate()
 	self.add_child(player)
 	if PlayerData.curScene == null:
-		i = 0
+		i = connectedScenes.size()
 	else:
-		i = fromScenes.find(PlayerData.curScene)
+		i = connectedScenes.find(PlayerData.curScene)
 	player.position = $Spawns.get_child(i).position
 	
 	PlayerData.curScene = self.name.to_lower()
@@ -58,7 +67,7 @@ func EnteredTransition(_player, ind):
 	for i in objects.size():
 		if objects[i] == null:
 			SaveData.SetRoomData(self, i, false)
-	nextScene = toScenes[ind]
+	nextScene = connectedScenes[ind]
 	timer.start(.2)
 	camera.blackoutTarget = 1
 	# lock player controls
