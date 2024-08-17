@@ -41,10 +41,13 @@ func _ready():
 	
 	if oneWay:
 		color = Color.WHITE
-		position.x+=50
+		if rotation != 0:
+			position.x -= 50
+		else:
+			position.x += 50
 		size.x -= 50
 		for child in get_children():
-			child.position.x-=50
+			child.position.x-= 50
 	else:
 		self_modulate.a = 0
 	set_clip_children_mode(CLIP_CHILDREN_DISABLED)
