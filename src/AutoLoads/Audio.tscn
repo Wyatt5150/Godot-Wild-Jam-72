@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://swpjnrjkyw3j"]
+
+[ext_resource type="Script" path="res://AutoLoads/Audio.gd" id="1_d80mx"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_d80mx")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
