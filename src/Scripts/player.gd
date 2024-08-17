@@ -5,7 +5,7 @@ var darkMax = -2
 var lightMax = 2
 var weightLock = 0.0
 
-var hasDashUpgrade = true
+var hasDashUpgrade = false
 var isDashing = false
 var canDash = false
 var dashTimer = 0.0
@@ -60,6 +60,7 @@ func DarkLightHandler(delta):
 		PlayerData.SetWeight(weight)
 	
 	PlayerData.SetWeight(weight)
+	modulate = PlayerData.GetColor(weight)
 
 func DashHandler(delta, direction):
 	if !hasDashUpgrade: return 0
@@ -125,6 +126,7 @@ func PullData():
 	self.weight = PlayerData.GetWeight()
 	self.darkMax = PlayerData.GetDarkMax()
 	self.lightMax = PlayerData.GetLightMax()
+	modulate = PlayerData.GetColor(weight)
 
 func GetDashState():
 	return self.isDashing

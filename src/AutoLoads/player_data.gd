@@ -1,5 +1,7 @@
 extends Node
 
+enum UPGRADE_TYPE {DASH, LIGHT, DARK, SPEED}
+
 var curScene
 
 var weight:int = 0
@@ -39,13 +41,13 @@ func HasDash():
 
 func UpgradeHandler(upgrade_type):
 	match upgrade_type:
-		"DarkMax":
+		UPGRADE_TYPE.DARK:
 			darkMax = max(darkMax + 1, darkMaxMax)
-		"LightMax":
+		UPGRADE_TYPE.LIGHT:
 			lightMax = min(lightMax + 1, lightMaxMax)
-		"ChangeSpeed":
+		UPGRADE_TYPE.SPEED:
 			changeSpeed = max(self.changeSpeed - changeSpeedUpgradeStrength, self.changeSpeedMin)
-		"Dash":
+		UPGRADE_TYPE.DASH:
 			hasDashUpgrade = true
 
 func GetColor(weight):

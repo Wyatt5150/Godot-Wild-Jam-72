@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://swpjnrjkyw3j"]
+[gd_scene load_steps=3 format=3 uid="uid://swpjnrjkyw3j"]
 
 [ext_resource type="Script" path="res://AutoLoads/Audio.gd" id="1_d80mx"]
+[ext_resource type="AudioStream" uid="uid://bicmmamgek2vu" path="res://Art/Pickup.mp3" id="2_x20nv"]
 
 [node name="Audio" type="Node"]
 script = ExtResource("1_d80mx")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x20nv")
+bus = &"SFX"
