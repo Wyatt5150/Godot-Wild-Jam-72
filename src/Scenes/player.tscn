@@ -17,3 +17,58 @@ shape = SubResource("RectangleShape2D_6e58e")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 texture = ExtResource("2_2kbdf")
+
+[node name="PlayerHud" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="PlayerHud"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 160.0
+grow_horizontal = 2
+
+[node name="DarkMeter" type="HSlider" parent="PlayerHud/Control"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -16.0
+mouse_filter = 2
+min_value = -5.0
+max_value = 0.0
+rounded = true
+editable = false
+scrollable = false
+ticks_on_borders = true
+
+[node name="LightMeter" type="HSlider" parent="PlayerHud/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 2
+max_value = 5.0
+rounded = true
+editable = false
+scrollable = false
+ticks_on_borders = true
+
+[node name="ColorRect" type="ColorRect" parent="PlayerHud/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_right = 0.525
+anchor_bottom = 0.917
+offset_top = 32.0
+offset_right = -3.05176e-05
+offset_bottom = -24.032
+color = Color(0.564706, 0.564706, 0.564706, 1)

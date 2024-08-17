@@ -18,8 +18,8 @@ const changeSpeedUpgradeStrength:float = .2
 
 var hasDashUpgrade = false
 
-func SetWeight(weight:int):
-	self.weight = weight
+func SetWeight(sweight:int):
+	self.weight = sweight
 	Audio.ChangeSpeed(weight)
 
 func GetWeight():

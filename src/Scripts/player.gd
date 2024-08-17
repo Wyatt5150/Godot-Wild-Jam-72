@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var dmeter = $PlayerHud/Control/DarkMeter
+@onready var lmeter = $PlayerHud/Control/LightMeter
+
 var weight = 0
 var darkMax = -2
 var lightMax = 2
@@ -62,6 +65,7 @@ func DarkLightHandler(delta):
 		PlayerData.SetWeight(weight)
 	
 	PlayerData.SetWeight(weight)
+	HandleMeter()
 	modulate = PlayerData.GetColor(weight)
 
 func DashHandler(delta):
@@ -85,6 +89,7 @@ func DashHandler(delta):
 	dashTimer = dashTime
 	isDashing = true
 	canDash = false
+	Audio.PlaySFX(Audio.SFX_TRACKS.DASH, true)
 
 func JumpHandler(delta):
 	
@@ -128,7 +133,24 @@ func PullData():
 	self.weight = PlayerData.GetWeight()
 	self.darkMax = PlayerData.GetDarkMax()
 	self.lightMax = PlayerData.GetLightMax()
+	HandleMeter()
 	modulate = PlayerData.GetColor(weight)
 
 func GetDashState():
 	return self.isDashing
+
+func HandleMeter():
+	if lightMax == 0: 
+		lmeter.hide()
+	else:
+		lmeter.show()
+	if darkMax == 0: 
+		dmeter.hide()
+	else:
+		dmeter.show()
+	dmeter.min_value = darkMax
+	lmeter.max_value = lightMax
+	lmeter.tick_count = lightMax + 1
+	dmeter.tick_count = abs(darkMax) + 1
+	lmeter.value = weight
+	dmeter.value = weight
