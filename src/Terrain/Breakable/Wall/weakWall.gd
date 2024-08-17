@@ -76,7 +76,7 @@ func destroy():
 	$Terrain/CollisionShape2D.set_deferred("disabled", true)
 	$PlayerNearby/CollisionShape2D.set_deferred("disabled", true)
 	$Destroy/CollisionShape2D.set_deferred("disabled", true)
-	pass
+	Audio.PlaySFX(Audio.SFX_TRACKS.ROCKFALL)
 
 func _on_destroy_body_entered(body):
 	if body.GetDashState() and PlayerData.GetWeight() <= wallStrength:

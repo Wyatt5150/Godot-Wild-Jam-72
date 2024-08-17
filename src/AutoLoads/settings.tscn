@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbt3c5ecfigjt"]
+[gd_scene load_steps=3 format=3 uid="uid://dbt3c5ecfigjt"]
 
 [ext_resource type="Script" path="res://AutoLoads/settings.gd" id="1_t5f8c"]
+[ext_resource type="PackedScene" uid="uid://c2bh18b5w6act" path="res://Scenes/key_bindings.tscn" id="2_ktk34"]
 
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
@@ -14,24 +15,92 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -504.0
+offset_left = -896.0
 offset_top = -416.0
-offset_right = 504.0
-offset_bottom = 416.0
+offset_right = 896.0
+offset_bottom = 449.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [node name="CloseSettings" type="Button" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -168.0
-offset_top = 28.0
-offset_right = -27.0
-offset_bottom = 132.0
+offset_left = -208.0
+offset_top = 36.0
+offset_right = -67.0
+offset_bottom = 116.0
 text = "CLOSE"
+
+[node name="Buttons" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.153
+offset_bottom = -0.345016
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="General" type="Button" parent="ColorRect/Buttons"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 36.0
+offset_right = 256.0
+offset_bottom = 112.0
+text = "General"
+
+[node name="KeyBind" type="Button" parent="ColorRect/Buttons"]
+offset_left = 320.0
+offset_top = 36.0
+offset_right = 512.0
+offset_bottom = 112.0
+text = "Key Bindings"
+
+[node name="DivideLine" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 140.0
+offset_right = 1720.0
+offset_bottom = 148.0
+color = Color(0, 0, 0, 1)
+
+[node name="Panels" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyBindings" parent="ColorRect/Panels" instance=ExtResource("2_ktk34")]
+visible = false
+position = Vector2(-56, 0)
+
+[node name="GeneralSettings" type="Control" parent="ColorRect/Panels"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/Panels/GeneralSettings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="ColorRect/CloseSettings" to="." method="Close"]

@@ -12,7 +12,7 @@ const darkMaxMax:int = -5
 var lightMax:int = 1
 const lightMaxMax:int = 5
 
-var changeSpeed:float = 1.0
+var changeSpeed:float = 0.6
 const changeSpeedMin:float = 0.1
 const changeSpeedUpgradeStrength:float = .2
 
@@ -20,6 +20,7 @@ var hasDashUpgrade = false
 
 func SetWeight(weight:int):
 	self.weight = weight
+	Audio.ChangeSpeed(weight)
 
 func GetWeight():
 	return self.weight

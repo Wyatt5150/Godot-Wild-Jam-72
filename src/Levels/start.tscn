@@ -124,5 +124,4 @@ rotation = 3.14159
 wallStrength = -5
 
 [node name="Collectible" parent="." instance=ExtResource("5_qousp")]
-position = Vector2(704, 1000)
-collectableType = 1
+position = Vector2(696, 968)

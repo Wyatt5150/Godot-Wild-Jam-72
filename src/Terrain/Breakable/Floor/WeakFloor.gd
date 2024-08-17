@@ -72,6 +72,7 @@ func destroy():
 	terrain.set_deferred("disabled", true)
 	playerDetector.set_deferred("disabled", true)
 	dying = true
+	Audio.PlaySFX(Audio.SFX_TRACKS.ROCKFALL)
 	timer.start(respawnTime)
 
 func _on_player_detector_body_entered(body):

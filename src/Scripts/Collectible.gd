@@ -26,5 +26,5 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body.UpgradeHandler(collectableType)
-		Audio.ChangeSFX(Audio.SFX_TRACKS.UPGRADE)
+		Audio.PlaySFX(Audio.SFX_TRACKS.UPGRADE)
 		self.queue_free()

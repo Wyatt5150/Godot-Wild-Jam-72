@@ -42,7 +42,6 @@ func _ready():
 			arr.push_back(make_binding_button(key,i,label))
 			set_binding(key, bindings[key][i], i)
 		incr+=1
-	pass # Replace with function body.
 	
 func make_binding_button(action, index, parent):
 	var but:Button = Button.new()
@@ -188,4 +187,3 @@ func _on_timer_timeout():
 	waitForInput = false
 	$Label.text = ""
 	timerLabel.text = ""
-	pass # Replace with function body.
