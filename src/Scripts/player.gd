@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var dmeter = $PlayerHud/Control/DarkMeter
 @onready var lmeter = $PlayerHud/Control/LightMeter
+@onready var meter = $PlayerHud/Control/ColorRect
 
 var weight = 0
 var darkMax = -2
@@ -143,6 +144,10 @@ func GetDashState():
 	return self.isDashing
 
 func HandleMeter():
+	if lightMax == 0 and darkMax == 0:
+		meter.hide()
+	else:
+		meter.show()
 	if lightMax == 0: 
 		lmeter.hide()
 	else:
@@ -157,6 +162,3 @@ func HandleMeter():
 	dmeter.tick_count = abs(darkMax) + 1
 	lmeter.value = weight
 	dmeter.value = weight
-
-
-

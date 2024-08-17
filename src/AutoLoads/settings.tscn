@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbt3c5ecfigjt"]
+[gd_scene load_steps=11 format=3 uid="uid://dbt3c5ecfigjt"]
 
 [ext_resource type="Script" path="res://AutoLoads/settings.gd" id="1_t5f8c"]
 [ext_resource type="PackedScene" uid="uid://c2bh18b5w6act" path="res://Scenes/key_bindings.tscn" id="2_ktk34"]
 [ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="2_sud53"]
 [ext_resource type="Script" path="res://AutoLoads/GeneralSettings.gd" id="3_3cnqa"]
+[ext_resource type="Shader" path="res://Art/Grayscale.gdshader" id="5_8nx6v"]
+[ext_resource type="Texture2D" uid="uid://dbnrtsqx5l1e6" path="res://Art/Dash.png" id="5_75twr"]
+[ext_resource type="Texture2D" uid="uid://c3p2w7hggghjn" path="res://Art/72-All-Cards.png" id="6_2gvcs"]
+[ext_resource type="Texture2D" uid="uid://buu65vkssvn3a" path="res://icon.svg" id="7_rja11"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kutjq"]
+shader = ExtResource("5_8nx6v")
+shader_parameter/saturation = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f83lp"]
+shader = ExtResource("5_8nx6v")
+shader_parameter/saturation = 0.0
 
 [node name="Settings" type="CanvasLayer"]
 process_mode = 3
@@ -38,7 +50,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_sud53")
-color = Color(0.882353, 0.882353, 0.882353, 1)
+color = Color(0.737255, 0.737255, 0.737255, 1)
 
 [node name="CloseSettings" type="Button" parent="ColorRect"]
 layout_mode = 1
@@ -60,7 +72,7 @@ grow_horizontal = 2
 mouse_filter = 2
 theme = ExtResource("2_sud53")
 
-[node name="Inventory" type="Button" parent="ColorRect/Buttons"]
+[node name="HowTo" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.192
@@ -69,7 +81,7 @@ offset_left = 64.0
 offset_top = 36.0
 offset_right = -24.064
 offset_bottom = -20.0
-text = "Inventory"
+text = "How To"
 
 [node name="General" type="Button" parent="ColorRect/Buttons"]
 layout_mode = 1
@@ -123,11 +135,20 @@ anchor_bottom = 1.0
 offset_top = 148.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_sud53")
 
 [node name="KeyBindings" parent="ColorRect/Panels" instance=ExtResource("2_ktk34")]
-position = Vector2(-56, 0)
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.993
+offset_left = -56.0
+offset_right = -1848.0
+offset_bottom = -711.981
 
 [node name="GeneralSettings" type="Control" parent="ColorRect/Panels"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,6 +221,64 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="Credits" type="Control" parent="ColorRect/Panels"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Panels/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 24.0
+offset_right = -576.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[u]Sounds[/u]
+Pixabay: https://pixabay.com
+	Wtf_01
+	harmonics-for-the-phase
+	cartoon-jump
+	whoosh
+Floraphonic: https://pixabay.com/users/floraphonic-38928062
+	rocks-and-gravel-slide-1
+
+[u]Fonts[/u]
+Ragamkata: https://www.fontspace.com/humion-font-f120887
+	Humion"
+tab_size = 24
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Wildcard" type="Sprite2D" parent="ColorRect/Panels/Credits"]
+material = SubResource("ShaderMaterial_kutjq")
+position = Vector2(1568, 175.469)
+scale = Vector2(0.213333, 0.210185)
+texture = ExtResource("6_2gvcs")
+hframes = 3
+frame = 1
+
+[node name="Wildcard2" type="Sprite2D" parent="ColorRect/Panels/Credits"]
+material = SubResource("ShaderMaterial_kutjq")
+position = Vector2(1567.5, 439.469)
+scale = Vector2(0.214444, 0.210185)
+texture = ExtResource("6_2gvcs")
+hframes = 3
+frame = 2
+
+[node name="Icon" type="Sprite2D" parent="ColorRect/Panels/Credits"]
+material = SubResource("ShaderMaterial_f83lp")
+position = Vector2(1568, 640)
+scale = Vector2(0.75, 0.749999)
+texture = ExtResource("7_rja11")
+
+[node name="HowTo" type="Control" parent="ColorRect/Panels"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -208,43 +287,261 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/Panels/Credits"]
+[node name="UpgradesSection" type="Label" parent="ColorRect/Panels/HowTo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.32
-offset_top = -30.5
-offset_right = -216.0
-offset_bottom = 9.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+anchor_left = 0.963
+anchor_right = 0.963
+offset_left = -509.696
+offset_top = 40.0
+offset_right = -61.696
+offset_bottom = 111.0
+text = "UPGRADES!"
+horizontal_alignment = 1
 
-[node name="Inventory" type="Control" parent="ColorRect/Panels"]
-visible = false
+[node name="Lighten" type="Control" parent="ColorRect/Panels/HowTo/UpgradesSection"]
 layout_mode = 1
-anchors_preset = 15
+anchor_top = 1.014
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_left = -8.0
+offset_top = 0.0059967
+offset_bottom = 192.006
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/UpgradesSection/Lighten"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_left = -304.0
+offset_top = -1.0
+grow_horizontal = 0
 grow_vertical = 2
+text = "Increases your Max Lightness, letting you jump even higher."
+autowrap_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/Panels/Inventory"]
+[node name="Dash" type="Sprite2D" parent="ColorRect/Panels/HowTo/UpgradesSection/Lighten"]
+position = Vector2(56, 96)
+rotation = 4.71239
+scale = Vector2(1.875, 2)
+texture = ExtResource("5_75twr")
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/UpgradesSection/Lighten"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="Darken" type="Control" parent="ColorRect/Panels/HowTo/UpgradesSection"]
+layout_mode = 1
+anchor_top = 3.704
+anchor_right = 1.019
+anchor_bottom = 3.704
+offset_left = -8.0
+offset_top = 0.0159912
+offset_right = -8.20801
+offset_bottom = 192.016
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/UpgradesSection/Darken"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.32
-offset_top = -134.5
-offset_right = -64.0
-offset_bottom = -94.5
-grow_horizontal = 2
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -1.0
+grow_horizontal = 0
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "Increases your Max Darkness, letting you break more things."
+autowrap_mode = 2
+
+[node name="Dash" type="Sprite2D" parent="ColorRect/Panels/HowTo/UpgradesSection/Darken"]
+position = Vector2(56, 96)
+rotation = 1.5708
+scale = Vector2(1.875, 2)
+texture = ExtResource("5_75twr")
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/UpgradesSection/Darken"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="Dash" type="Control" parent="ColorRect/Panels/HowTo/UpgradesSection"]
+layout_mode = 1
+anchor_left = -0.019
+anchor_top = 6.31
+anchor_right = 1.0
+anchor_bottom = 6.31
+offset_left = 0.208
+offset_top = 7.98996
+offset_bottom = 199.99
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/UpgradesSection/Dash"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Gives you the ability to Dash, letting you smash walls."
+autowrap_mode = 2
+
+[node name="Dash" type="Sprite2D" parent="ColorRect/Panels/HowTo/UpgradesSection/Dash"]
+position = Vector2(56, 96)
+scale = Vector2(1.875, 2)
+texture = ExtResource("5_75twr")
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/UpgradesSection/Dash"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="GameplaySection" type="Label" parent="ColorRect/Panels/HowTo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.643
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 48.0
+offset_right = -32.256
+offset_bottom = -601.0
+text = "GAMEPLAY"
+horizontal_alignment = 1
+
+[node name="Lighten" type="Control" parent="ColorRect/Panels/HowTo/GameplaySection"]
+layout_mode = 1
+anchor_top = 1.014
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_left = -8.0
+offset_top = 0.0479965
+offset_bottom = 192.048
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Increases your Lightness.
+Being lighter makes you jump higher and land on platforms without breaking them."
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="Label2" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.99
+offset_top = 4.0
+offset_bottom = 1.91998
+text = "HOLD or TAP
+W / UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lighten2" type="Control" parent="ColorRect/Panels/HowTo/GameplaySection"]
+layout_mode = 1
+anchor_top = 1.014
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_left = -8.0
+offset_top = 192.048
+offset_bottom = 384.048
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -768.0
+offset_top = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Increases your Darkness.
+Being darker makes you heavier and causes platforms to break beneath you."
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="Label2" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.99
+offset_top = 4.0
+offset_bottom = 1.91998
+text = "HOLD or TAP
+S / DOWN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lighten3" type="Control" parent="ColorRect/Panels/HowTo/GameplaySection"]
+layout_mode = 1
+anchor_top = 1.014
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_top = 378.048
+offset_right = 8.0
+offset_bottom = 570.048
+
+[node name="Label" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -776.0
+offset_top = 6.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Once you  unlock the Dash  upgrade.
+Dash speed is affected by your Darkness and Lightness and lets you break walls if you are heavy enough"
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+
+[node name="Label2" type="Label" parent="ColorRect/Panels/HowTo/GameplaySection/Lighten3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.99
+offset_top = 4.0
+offset_bottom = 1.91998
+text = "TAP
+SHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="ColorRect/CloseSettings" to="." method="Close"]

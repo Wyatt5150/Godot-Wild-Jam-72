@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://14bj0y2xewoo"]
+[gd_scene load_steps=7 format=3 uid="uid://14bj0y2xewoo"]
 
 [ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="1_in82i"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_m32jd"]
 [ext_resource type="Texture2D" uid="uid://dpjj7xm3bcwtn" path="res://Art/Gradient.png" id="2_cogjf"]
 [ext_resource type="Texture2D" uid="uid://buu65vkssvn3a" path="res://icon.svg" id="2_luc6f"]
+[ext_resource type="Shader" path="res://Art/Grayscale.gdshader" id="4_ewbwq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxrlm"]
+shader = ExtResource("4_ewbwq")
+shader_parameter/saturation = 0.0
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -29,13 +34,16 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 97.0
-offset_top = 64.0
-offset_right = -449.0
-offset_bottom = 863.0
+offset_top = 344.0
+offset_right = -448.0
+offset_bottom = 864.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = -10
+theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 291
-text = "DarkLight
-Jam"
+text = "DarkLight"
 
 [node name="Gradient" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.737255)
@@ -84,9 +92,10 @@ offset_bottom = -56.0
 theme_override_font_sizes/font_size = 41
 text = "EXIT"
 
-[node name="GodotIcon" type="Sprite2D" parent="."]
-position = Vector2(1796, 968)
-scale = Vector2(0.9375, 0.875)
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mxrlm")
+position = Vector2(1800, 968)
+scale = Vector2(0.875, 0.875)
 texture = ExtResource("2_luc6f")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

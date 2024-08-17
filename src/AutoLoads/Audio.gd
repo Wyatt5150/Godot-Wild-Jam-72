@@ -14,7 +14,7 @@ const MUSIC_PATHS = {
 const SFX_PATHS = {
 	SFX_TRACKS.UPGRADE : "res://Art/Pickup.mp3",
 	SFX_TRACKS.ROCKFALL : "res://Art/RockFall.mp3",
-	SFX_TRACKS.JUMP : "res://Art/Jump.mp3",
+	SFX_TRACKS.JUMP : "res://Art/Whoosh.mp3",
 	SFX_TRACKS.DASH : "res://Art/Whoosh.mp3"
 }
 

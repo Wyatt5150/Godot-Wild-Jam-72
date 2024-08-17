@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var bindings:Dictionary
 var buttons:Dictionary

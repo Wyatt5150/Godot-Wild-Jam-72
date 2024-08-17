@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/key_bindings.gd" id="1_okoi4"]
 [ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="2_v4qfc"]
 
-[node name="KeyBindings" type="Node2D"]
+[node name="KeyBindings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_okoi4")
 
 [node name="Actions" type="Control" parent="."]
