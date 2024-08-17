@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs7cimmitd1gn"]
+[gd_scene load_steps=6 format=3 uid="uid://bs7cimmitd1gn"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_l8kvu"]
 [ext_resource type="Texture2D" uid="uid://bfy3forw4bmpf" path="res://Art/BoxGuy.png" id="2_2kbdf"]
 [ext_resource type="Texture2D" uid="uid://bh7r1mcbrm5ye" path="res://Art/BoxGuyWhite.png" id="3_mpbj0"]
+[ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="4_5rg30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e58e"]
 size = Vector2(64, 64)
@@ -38,6 +39,7 @@ offset_top = 64.0
 offset_right = 320.0
 offset_bottom = 160.0
 grow_horizontal = 2
+theme = ExtResource("4_5rg30")
 
 [node name="DarkMeter" type="HSlider" parent="PlayerHud/Control"]
 layout_direction = 3

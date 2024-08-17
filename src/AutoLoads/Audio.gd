@@ -32,6 +32,21 @@ func PlaySFX(track:SFX_TRACKS, useWeight:bool = false):
 	var sfx = AudioStreamPlayer.new()
 	add_child(sfx)
 	sfx.stream = load(SFX_PATHS[track])
+	sfx.set_bus("SFX")
+	
+	var pitch = 1.0
+	if useWeight:
+		pitch = audioSpeed
+	pitch = pitch + randf_range(-.05, 0.05)
+	sfx.pitch_scale = pitch
+	sfx.finished.connect(Callable(sfx, "queue_free"))
+	sfx.play()
+
+func Play2DSFX(track:SFX_TRACKS, node:Node2D, useWeight:bool = false):
+	var sfx = AudioStreamPlayer2D.new()
+	node.add_child(sfx)
+	sfx.stream = load(SFX_PATHS[track])
+	sfx.set_bus("SFX")
 	
 	var pitch = 1.0
 	if useWeight:
@@ -45,5 +60,5 @@ func ChangeSpeed(weight:int):
 	audioSpeed = 1.0 + (weight * .05)
 	music.pitch_scale = audioSpeed
 
-func ChangeVolume(bus, percent:float):
-	AudioServer.set_bus_volume_db(bus, linear_to_db(percent/100))
+func ChangeVolume(percent:float, bus:StringName):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), linear_to_db(percent/100))

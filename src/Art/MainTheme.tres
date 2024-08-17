@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cwrwggm0g2ofu"]
+
+[ext_resource type="FontFile" uid="uid://dmivt0nuccrr7" path="res://Art/Font.ttf" id="1_r1is5"]
+
+[resource]
+Button/font_sizes/font_size = 36
+Button/fonts/font = ExtResource("1_r1is5")
+Fonts/fonts/large = ExtResource("1_r1is5")
+Fonts/fonts/normal = ExtResource("1_r1is5")
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("1_r1is5")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2bh18b5w6act"]
+[gd_scene load_steps=3 format=3 uid="uid://c2bh18b5w6act"]
 
 [ext_resource type="Script" path="res://Scripts/key_bindings.gd" id="1_okoi4"]
+[ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="2_v4qfc"]
 
 [node name="KeyBindings" type="Node2D"]
 script = ExtResource("1_okoi4")
@@ -15,6 +16,7 @@ position = Vector2(261, 0)
 offset_left = 25.0
 offset_right = 275.0
 offset_bottom = 69.0
+theme = ExtResource("2_v4qfc")
 text = "Key 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -23,6 +25,7 @@ vertical_alignment = 1
 offset_left = 425.0
 offset_right = 675.0
 offset_bottom = 69.0
+theme = ExtResource("2_v4qfc")
 text = "Key 2"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -31,6 +34,7 @@ vertical_alignment = 1
 offset_left = 825.0
 offset_right = 1075.0
 offset_bottom = 69.0
+theme = ExtResource("2_v4qfc")
 text = "Mouse"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,6 +43,7 @@ vertical_alignment = 1
 offset_left = 1225.0
 offset_right = 1475.0
 offset_bottom = 69.0
+theme = ExtResource("2_v4qfc")
 text = "Controller"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,6 +52,7 @@ vertical_alignment = 1
 offset_top = 566.0
 offset_right = 1920.0
 offset_bottom = 619.0
+theme = ExtResource("2_v4qfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,6 +61,7 @@ offset_left = 1.0
 offset_top = 614.0
 offset_right = 1920.0
 offset_bottom = 679.0
+theme = ExtResource("2_v4qfc")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]

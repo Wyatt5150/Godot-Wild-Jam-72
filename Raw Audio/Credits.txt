@@ -1,3 +1,4 @@
+Sounds
 Pixabay: https://pixabay.com
 	Wtf_01
 	harmonics-for-the-phase
@@ -5,3 +6,7 @@ Pixabay: https://pixabay.com
 	whoosh
 Floraphonic: https://pixabay.com/users/floraphonic-38928062
 	rocks-and-gravel-slide-1
+
+Fonts
+Ragamkata: https://www.fontspace.com/humion-font-f120887
+	Humion

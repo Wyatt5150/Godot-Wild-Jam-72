@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://14bj0y2xewoo"]
+[gd_scene load_steps=5 format=3 uid="uid://14bj0y2xewoo"]
 
+[ext_resource type="Theme" uid="uid://cwrwggm0g2ofu" path="res://Art/MainTheme.tres" id="1_in82i"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_m32jd"]
 [ext_resource type="Texture2D" uid="uid://dpjj7xm3bcwtn" path="res://Art/Gradient.png" id="2_cogjf"]
 [ext_resource type="Texture2D" uid="uid://buu65vkssvn3a" path="res://icon.svg" id="2_luc6f"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_in82i")
 script = ExtResource("1_m32jd")
 
 [node name="Background" type="ColorRect" parent="."]
