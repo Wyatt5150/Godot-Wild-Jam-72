@@ -12,7 +12,7 @@ const darkMaxMax:int = -5
 var lightMax:int = 1
 const lightMaxMax:int = 5
 
-var changeSpeed:float = 0.6
+var changeSpeed:float = 0.1
 const changeSpeedMin:float = 0.1
 const changeSpeedUpgradeStrength:float = .2
 

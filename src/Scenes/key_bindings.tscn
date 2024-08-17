@@ -6,11 +6,19 @@
 [node name="KeyBindings" type="Node2D"]
 script = ExtResource("1_okoi4")
 
-[node name="Actions" type="Node2D" parent="."]
-position = Vector2(0, 80)
+[node name="Actions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 80.0
+offset_bottom = 80.0
+theme = ExtResource("2_v4qfc")
 
-[node name="ControlType" type="Node2D" parent="."]
-position = Vector2(261, 0)
+[node name="ControlType" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 261.0
+offset_right = 261.0
+theme = ExtResource("2_v4qfc")
 
 [node name="Key1" type="Label" parent="ControlType"]
 offset_left = 25.0
