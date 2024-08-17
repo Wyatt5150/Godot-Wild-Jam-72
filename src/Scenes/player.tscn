@@ -72,3 +72,11 @@ offset_top = 32.0
 offset_right = -3.05176e-05
 offset_bottom = -24.032
 color = Color(0.564706, 0.564706, 0.564706, 1)
+
+[node name="SettingsButton" type="Button" parent="PlayerHud/Control"]
+offset_left = 1024.0
+offset_right = 1216.0
+offset_bottom = 64.0
+text = "MENU"
+
+[connection signal="pressed" from="PlayerHud/Control/SettingsButton" to="." method="_on_settings_button_pressed"]

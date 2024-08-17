@@ -32,6 +32,7 @@ var direction = Vector2(0.0, 0.0)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	$PlayerHud/Control/SettingsButton.pressed.connect(Callable(Settings, "Open"))
 	PullData()
 
 func _physics_process(delta):
@@ -154,3 +155,6 @@ func HandleMeter():
 	dmeter.tick_count = abs(darkMax) + 1
 	lmeter.value = weight
 	dmeter.value = weight
+
+
+

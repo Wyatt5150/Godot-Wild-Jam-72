@@ -3,14 +3,16 @@ extends CanvasLayer
 @onready var buttons = $ColorRect/Buttons
 
 var button_map = {
+	"Inventory" : "ColorRect/Panels/Inventory",
 	"KeyBind" : "ColorRect/Panels/KeyBindings",
-	"General" : "ColorRect/Panels/GeneralSettings"
+	"General" : "ColorRect/Panels/GeneralSettings",
+	"Credits" : "ColorRect/Panels/Credits"
 }
 
 func _ready():
 	for button in buttons.get_children():
 		button.pressed.connect(Callable(self, "ShowMenu").bind(button.name))
-	ShowMenu("General")
+	ShowMenu("Inventory")
 	Close()
 
 func Open():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://14bj0y2xewoo"]
+[gd_scene load_steps=4 format=3 uid="uid://14bj0y2xewoo"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_m32jd"]
+[ext_resource type="Texture2D" uid="uid://dpjj7xm3bcwtn" path="res://Art/Gradient.png" id="2_cogjf"]
 [ext_resource type="Texture2D" uid="uid://buu65vkssvn3a" path="res://icon.svg" id="2_luc6f"]
 
 [node name="Main Menu" type="Control"]
@@ -19,20 +20,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.709804, 0.831373, 1, 1)
+color = Color(0.74902, 0.74902, 0.74902, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 136.0
+offset_left = 97.0
 offset_top = 64.0
-offset_right = -488.0
-offset_bottom = 512.0
+offset_right = -449.0
+offset_bottom = 863.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 291
 text = "DarkLight
 Jam"
+
+[node name="Gradient" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.737255)
+position = Vector2(961, 538)
+scale = Vector2(1.80556, 1.51667)
+texture = ExtResource("2_cogjf")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
@@ -59,7 +66,7 @@ offset_top = -168.0
 offset_right = -76.6801
 offset_bottom = -56.0
 theme_override_font_sizes/font_size = 41
-text = "SETTINGS"
+text = "MENU"
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 1
