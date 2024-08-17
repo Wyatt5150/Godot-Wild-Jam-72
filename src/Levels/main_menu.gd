@@ -1,6 +1,6 @@
 extends Control
 
-var level = "res://Levels/test.tscn"
+var level = "res://Levels/start.tscn"
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file(level)

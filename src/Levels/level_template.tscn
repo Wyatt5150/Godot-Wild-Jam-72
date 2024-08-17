@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmnger67e5xjw"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_77ccr"]
+[ext_resource type="PackedScene" uid="uid://dk1kw1wmigcwh" path="res://Terrain/TileMap/tile_map.tscn" id="2_12yc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uffy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02kav"]
+size = Vector2(4117.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0kwi"]
+size = Vector2(161, 1298.5)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_77ccr")
+toScenes = Array[String](["test"])
+fromScenes = Array[String](["tes"])
+
+[node name="Transitions" type="Node" parent="."]
+
+[node name="t1" type="Area2D" parent="Transitions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/t1"]
+shape = SubResource("RectangleShape2D_8uffy")
+
+[node name="Spawns" type="Node" parent="."]
+
+[node name="s1" type="Node2D" parent="Spawns"]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Misc" type="Node" parent="."]
+
+[node name="CameraLock" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="CameraLock"]
+position = Vector2(1289, -20)
+shape = SubResource("RectangleShape2D_02kav")
+
+[node name="Bottom" type="CollisionShape2D" parent="CameraLock"]
+position = Vector2(1225, 1215)
+shape = SubResource("RectangleShape2D_02kav")
+
+[node name="Left" type="CollisionShape2D" parent="CameraLock"]
+position = Vector2(-79, 600.75)
+shape = SubResource("RectangleShape2D_o0kwi")
+
+[node name="Right" type="CollisionShape2D" parent="CameraLock"]
+position = Vector2(2538, 586)
+shape = SubResource("RectangleShape2D_o0kwi")
+
+[node name="TileMap" parent="." instance=ExtResource("2_12yc3")]
