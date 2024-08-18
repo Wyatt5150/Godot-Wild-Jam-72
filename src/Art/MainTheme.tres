@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cwrwggm0g2ofu"]
+
+[ext_resource type="FontFile" uid="uid://dmivt0nuccrr7" path="res://Art/Font.ttf" id="1_r1is5"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3kuma"]
+thickness = 3
+
+[resource]
+Button/font_sizes/font_size = 36
+Button/fonts/font = ExtResource("1_r1is5")
+Fonts/fonts/large = ExtResource("1_r1is5")
+Fonts/fonts/normal = ExtResource("1_r1is5")
+HSeparator/styles/separator = SubResource("StyleBoxLine_3kuma")
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("1_r1is5")
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("1_r1is5")

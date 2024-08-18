@@ -1,9 +1,10 @@
 extends CanvasLayer
 
 @onready var buttons = $ColorRect/Buttons
+@onready var panels = $ColorRect/Panels
 
 var button_map = {
-	"Inventory" : "ColorRect/Panels/Inventory",
+	"HowTo" : "ColorRect/Panels/HowTo",
 	"KeyBind" : "ColorRect/Panels/KeyBindings",
 	"General" : "ColorRect/Panels/GeneralSettings",
 	"Credits" : "ColorRect/Panels/Credits"
@@ -12,7 +13,7 @@ var button_map = {
 func _ready():
 	for button in buttons.get_children():
 		button.pressed.connect(Callable(self, "ShowMenu").bind(button.name))
-	ShowMenu("Inventory")
+	ShowMenu("HowTo")
 	Close()
 
 func Open():
@@ -24,9 +25,8 @@ func Close():
 	get_tree().set_deferred("paused", false)
 
 func HideAll():
-	for button in buttons.get_children():
-		var node = get_node_or_null(button_map[button.name])
-		if node != null: node.hide()
+	for panel in panels.get_children():
+		panel.hide()
 
 func ShowMenu(button:String):
 	HideAll()
