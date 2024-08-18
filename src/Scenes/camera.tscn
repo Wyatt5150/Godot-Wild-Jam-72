@@ -17,6 +17,7 @@ script = ExtResource("1_t3v50")
 shape = SubResource("RectangleShape2D_m6ko5")
 
 [node name="Blackout" type="ColorRect" parent="."]
+z_index = 99
 offset_left = -2541.0
 offset_top = -1431.0
 offset_right = 2767.0

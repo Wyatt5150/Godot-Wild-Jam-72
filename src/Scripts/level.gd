@@ -47,7 +47,7 @@ func _ready():
 	var player = load("res://Scenes/player.tscn").instantiate()
 	self.add_child(player)
 	if PlayerData.curScene == null:
-		i = connectedScenes.size()
+		i = $Spawns.get_children().size()-1
 	else:
 		i = connectedScenes.find(PlayerData.curScene)
 	player.position = $Spawns.get_child(i).position
@@ -58,7 +58,7 @@ func _ready():
 	camera = load("res://Scenes/camera.tscn").instantiate()
 	self.add_child(camera)
 	camera.player = player
-	camera.position = player.position
+	camera.position = $CameraDefault.position
 	
 	# start
 	pass # Replace with function body.
@@ -67,6 +67,7 @@ func EnteredTransition(_player, ind):
 	for i in objects.size():
 		if objects[i] == null:
 			SaveData.SetRoomData(self, i, false)
+	SaveData.GetRoomSave(self)
 	nextScene = connectedScenes[ind]
 	timer.start(.2)
 	camera.blackoutTarget = 1
