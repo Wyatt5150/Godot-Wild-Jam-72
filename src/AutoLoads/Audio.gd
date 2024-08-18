@@ -2,13 +2,13 @@ extends Node
 
 @onready var music = $Music
 
-enum MUSIC_TRACKS {MAIN_MENU, DEFAULT_LEVEL, CREDITS}
+enum MUSIC_TRACKS {MAIN_MENU, DEFAULT_LEVEL, POST_DASH}
 enum SFX_TRACKS {UPGRADE, ROCKFALL, JUMP, DASH}
 
 const MUSIC_PATHS = {
-	MUSIC_TRACKS.MAIN_MENU : "res://Art/MenuTheme.mp3",
-	MUSIC_TRACKS.DEFAULT_LEVEL : "res://Art/MenuTheme.mp3",
-	MUSIC_TRACKS.CREDITS : ""
+	MUSIC_TRACKS.MAIN_MENU : "res://Art/Title.mp3",
+	MUSIC_TRACKS.DEFAULT_LEVEL : "res://Art/BackgroundTheme.mp3",
+	MUSIC_TRACKS.POST_DASH : "res://Art/Post Dash.mp3"
 }
 
 const SFX_PATHS = {

@@ -7,10 +7,10 @@ var curScene
 var weight:int = 0
 
 var darkMax:int = 0
-const darkMaxMax:int = -5
+const darkMaxMax:int = -3
 
 var lightMax:int = 0
-const lightMaxMax:int = 5
+const lightMaxMax:int = 3
 
 var changeSpeed:float = 0.1
 const changeSpeedMin:float = 0.1
@@ -50,6 +50,7 @@ func UpgradeHandler(upgrade_type):
 			changeSpeed = max(self.changeSpeed - changeSpeedUpgradeStrength, self.changeSpeedMin)
 		UPGRADE_TYPE.DASH:
 			hasDashUpgrade = true
+			Audio.ChangeMusic(Audio.MUSIC_TRACKS.POST_DASH)
 
 func GetColor(weight):
 	var c = (float)(weight - darkMaxMax)/ (float)(lightMaxMax-darkMaxMax)

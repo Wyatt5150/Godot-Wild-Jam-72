@@ -124,4 +124,3 @@ shape = SubResource("RectangleShape2D_o0kwi")
 
 [node name="Collectible" parent="." instance=ExtResource("5_qousp")]
 position = Vector2(696, 968)
-collectableType = 1
