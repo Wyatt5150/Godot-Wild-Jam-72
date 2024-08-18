@@ -13,8 +13,6 @@ size = Vector2(161, 1298.5)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_77ccr")
-toScenes = Array[String](["test"])
-fromScenes = Array[String](["tes"])
 
 [node name="Transitions" type="Node" parent="."]
 
@@ -52,3 +50,6 @@ position = Vector2(2538, 586)
 shape = SubResource("RectangleShape2D_o0kwi")
 
 [node name="TileMap" parent="." instance=ExtResource("2_12yc3")]
+
+[node name="CameraDefault" type="Node2D" parent="."]
+position = Vector2(960, 540)

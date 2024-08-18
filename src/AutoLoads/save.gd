@@ -14,7 +14,6 @@ func GetRoomSave(room):
 		for i in room.objects.size():
 			arr.push_back(true)
 		roomSaveData[room.name] = arr
-
 	return roomSaveData[room.name]
 
 func SetRoomData(room, index, val):

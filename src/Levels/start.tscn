@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsi6fjmj5xp1v"]
+[gd_scene load_steps=10 format=3 uid="uid://cy0nxbuet0qt7"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_mcqh8"]
 [ext_resource type="PackedScene" uid="uid://dk1kw1wmigcwh" path="res://Terrain/TileMap/tile_map.tscn" id="2_cskg2"]
 [ext_resource type="PackedScene" uid="uid://d2uln2c8j6bcv" path="res://Terrain/Breakable/Wall/weakWall.tscn" id="3_8u5cl"]
 [ext_resource type="PackedScene" uid="uid://cr8ikhcgcuwen" path="res://Terrain/Breakable/Floor/weakFloor.tscn" id="4_bw82y"]
-[ext_resource type="PackedScene" uid="uid://dg62a2lmotk5x" path="res://Scenes/collectible.tscn" id="5_qousp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkjbc"]
 size = Vector2(162.5, 1804)
@@ -21,7 +20,7 @@ size = Vector2(4117.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0kwi"]
 size = Vector2(161, 2367.25)
 
-[node name="Level" type="Node2D"]
+[node name="Start" type="Node2D"]
 script = ExtResource("1_mcqh8")
 connectedScenes = Array[String](["light1", "dark1", "mid", "darkEnd"])
 
@@ -122,5 +121,5 @@ shape = SubResource("RectangleShape2D_o0kwi")
 position = Vector2(3378, 695)
 shape = SubResource("RectangleShape2D_o0kwi")
 
-[node name="Collectible" parent="." instance=ExtResource("5_qousp")]
-position = Vector2(696, 968)
+[node name="CameraDefault" type="Node2D" parent="."]
+position = Vector2(1385, 511)
