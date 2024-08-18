@@ -51,8 +51,6 @@ func _ready():
 	else:
 		i = connectedScenes.find(PlayerData.curScene)
 	player.position = $Spawns.get_child(i).position
-	print(PlayerData.curScene)
-	print(self.name.to_lower())
 	PlayerData.curScene = self.name.to_lower()
 	
 	# spawn camera

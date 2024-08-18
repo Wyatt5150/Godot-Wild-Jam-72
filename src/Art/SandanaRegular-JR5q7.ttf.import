@@ -2,19 +2,19 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmivt0nuccrr7"
-path="res://.godot/imported/Font.ttf-d50edec85ba57dd07a485f01ad2ca10b.fontdata"
+uid="uid://ryqqnidjabxs"
+path="res://.godot/imported/SandanaRegular-JR5q7.ttf-3d0b3edc65946a8c296f714e1e7ba015.fontdata"
 
 [deps]
 
-source_file="res://Art/Font.ttf"
-dest_files=["res://.godot/imported/Font.ttf-d50edec85ba57dd07a485f01ad2ca10b.fontdata"]
+source_file="res://Art/SandanaRegular-JR5q7.ttf"
+dest_files=["res://.godot/imported/SandanaRegular-JR5q7.ttf-3d0b3edc65946a8c296f714e1e7ba015.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=true
+generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

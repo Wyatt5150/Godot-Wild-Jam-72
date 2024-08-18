@@ -132,6 +132,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
 offset_top = 148.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -169,8 +170,8 @@ offset_bottom = -29.0
 [node name="Master" type="Label" parent="ColorRect/Panels/GeneralSettings/AudioSettings"]
 layout_mode = 1
 anchors_preset = -1
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 191.0
+offset_bottom = 80.0
 text = "MASTER
 VOLUME"
 
@@ -187,8 +188,8 @@ ticks_on_borders = true
 [node name="Music" type="Label" parent="ColorRect/Panels/GeneralSettings/AudioSettings"]
 layout_mode = 0
 offset_top = 128.0
-offset_right = 128.0
-offset_bottom = 241.0
+offset_right = 191.0
+offset_bottom = 208.0
 text = "MUSIC
 VOLUME"
 
@@ -205,8 +206,8 @@ ticks_on_borders = true
 [node name="SFX" type="Label" parent="ColorRect/Panels/GeneralSettings/AudioSettings"]
 layout_mode = 0
 offset_top = 256.0
-offset_right = 128.0
-offset_bottom = 369.0
+offset_right = 192.0
+offset_bottom = 331.0
 text = "SFX
 VOLUME"
 
@@ -242,7 +243,7 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "[u]Sounds[/u]
 Pixabay: https://pixabay.com
-	Wtf_01
+	Wtf-01
 	Harmonics For The Phase
 	Whoosh
 Floraphonic: https://pixabay.com/users/floraphonic-38928062
@@ -253,8 +254,8 @@ Universfield: https://pixabay.com/users/universfield-28281460
 	Mystical Dark Atmosphere
 
 [u]Fonts[/u]
-Ragamkata: https://www.fontspace.com/humion-font-f120887
-	Humion"
+The Jigsaw Foundry: https://www.fontspace.com/sandana-font-f106650
+	Sandana"
 tab_size = 24
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
@@ -317,8 +318,8 @@ anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -1.0
+offset_left = -320.0
+offset_top = 24.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Increases your Max Lightness, letting you jump even higher."
@@ -353,8 +354,9 @@ anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -1.0
+offset_left = -320.304
+offset_top = 17.0
+offset_right = -0.304016
 grow_horizontal = 0
 grow_vertical = 2
 text = "Increases your Max Darkness, letting you break more things."
@@ -389,8 +391,9 @@ anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -1.0
+offset_left = -320.304
+offset_top = 24.0
+offset_right = -0.304016
 grow_horizontal = 0
 grow_vertical = 2
 text = "Gives you the ability to Dash, letting you smash walls."
@@ -413,7 +416,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.643
 anchor_bottom = 1.0
-offset_left = 136.0
+offset_left = 72.0
 offset_top = 48.0
 offset_right = -32.256
 offset_bottom = -601.0
@@ -436,7 +439,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -768.0
-offset_top = -1.0
+offset_top = 35.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Increases your Lightness.
@@ -478,7 +481,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -768.0
-offset_top = -1.0
+offset_top = 35.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Increases your Darkness.
@@ -498,6 +501,7 @@ anchors_preset = -1
 anchor_right = 0.2
 anchor_bottom = 0.99
 offset_top = 4.0
+offset_right = 56.6
 offset_bottom = 1.91998
 text = "HOLD or TAP
 S / DOWN"
@@ -520,7 +524,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -776.0
-offset_top = 6.0
+offset_top = 33.0
 offset_bottom = 18.0
 grow_horizontal = 0
 grow_vertical = 2
