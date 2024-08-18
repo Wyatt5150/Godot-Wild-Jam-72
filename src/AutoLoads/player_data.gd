@@ -18,7 +18,7 @@ const changeSpeedUpgradeStrength:float = .2
 
 var hasDashUpgrade = false
 
-var devMode = true
+var devMode = false
 
 func _ready():
 	if devMode:

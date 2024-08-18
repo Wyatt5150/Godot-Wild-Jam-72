@@ -149,7 +149,6 @@ offset_right = -1848.0
 offset_bottom = -711.981
 
 [node name="GeneralSettings" type="Control" parent="ColorRect/Panels"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,12 +159,12 @@ script = ExtResource("3_3cnqa")
 
 [node name="AudioSettings" type="Control" parent="ColorRect/Panels/GeneralSettings"]
 layout_mode = 1
-anchor_right = 0.429
-anchor_bottom = 1.0
-offset_left = 128.0
-offset_top = 48.0
-offset_right = -0.768066
-offset_bottom = -29.0
+anchor_right = 1.0
+anchor_bottom = 1.026
+offset_left = 560.0
+offset_top = 152.0
+offset_right = -578.0
+offset_bottom = -47.642
 
 [node name="Master" type="Label" parent="ColorRect/Panels/GeneralSettings/AudioSettings"]
 layout_mode = 1
@@ -222,6 +221,7 @@ tick_count = 10
 ticks_on_borders = true
 
 [node name="Credits" type="Control" parent="ColorRect/Panels"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
