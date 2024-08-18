@@ -38,7 +38,6 @@ func _ready():
 	
 	self_modulate.a = 0
 	set_clip_children_mode(CLIP_CHILDREN_DISABLED)
-	pass # Replace with function body.
 
 func _process(delta):
 	if player != null:

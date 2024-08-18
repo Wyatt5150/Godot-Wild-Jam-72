@@ -43,7 +43,7 @@ func HasDash():
 func UpgradeHandler(upgrade_type):
 	match upgrade_type:
 		UPGRADE_TYPE.DARK:
-			darkMax = max(darkMax + 1, darkMaxMax)
+			darkMax = max(darkMax - 1, darkMaxMax)
 		UPGRADE_TYPE.LIGHT:
 			lightMax = min(lightMax + 1, lightMaxMax)
 		UPGRADE_TYPE.SPEED:

@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ch0riwkrqwvw8" path="res://Terrain/Breakable/Floor/weakFloor.png" id="2_ogot0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0g5w"]
+resource_local_to_scene = true
 size = Vector2(50, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dga5k"]
+resource_local_to_scene = true
 size = Vector2(50, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp18c"]
+resource_local_to_scene = true
 size = Vector2(50, 10)
 
 [node name="WeakFloor" type="ColorRect"]

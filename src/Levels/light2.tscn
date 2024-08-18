@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://5ws54vtf5xy6"]
+[gd_scene load_steps=11 format=3 uid="uid://wr20yr0ohmkr"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_7wt4c"]
 [ext_resource type="PackedScene" uid="uid://dk1kw1wmigcwh" path="res://Terrain/TileMap/tile_map.tscn" id="2_mpdtk"]
-[ext_resource type="PackedScene" path="res://Scenes/collectible.tscn" id="3_gh1t3"]
+[ext_resource type="PackedScene" uid="uid://dg62a2lmotk5x" path="res://Scenes/collectible.tscn" id="3_gh1t3"]
 [ext_resource type="PackedScene" uid="uid://d2uln2c8j6bcv" path="res://Terrain/Breakable/Wall/weakWall.tscn" id="3_nelkx"]
 [ext_resource type="PackedScene" uid="uid://cr8ikhcgcuwen" path="res://Terrain/Breakable/Floor/weakFloor.tscn" id="5_30w4y"]
 

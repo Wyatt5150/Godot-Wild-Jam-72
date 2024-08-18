@@ -4,12 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ov4of0yersae" path="res://Terrain/Breakable/Wall/weakWallOneWay.png" id="2_h2x7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5k4u"]
+resource_local_to_scene = true
 size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yymum"]
+resource_local_to_scene = true
 size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd6d6"]
+resource_local_to_scene = true
 
 [node name="WeakWall" type="ColorRect"]
 clip_children = 2

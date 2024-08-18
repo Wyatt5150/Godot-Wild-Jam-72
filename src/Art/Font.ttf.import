@@ -14,11 +14,11 @@ dest_files=["res://.godot/imported/Font.ttf-d50edec85ba57dd07a485f01ad2ca10b.fon
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=false
+generate_mipmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
-allow_system_fallback=true
+allow_system_fallback=false
 force_autohinter=false
 hinting=1
 subpixel_positioning=1
