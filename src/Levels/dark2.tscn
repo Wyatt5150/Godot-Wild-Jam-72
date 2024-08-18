@@ -48,10 +48,6 @@ position = Vector2(186, 444)
 position = Vector2(530, 1217)
 collectableType = 1
 
-[node name="Collectible2" parent="Objects" instance=ExtResource("2_hgl3d")]
-position = Vector2(674, 1540)
-collectableType = 2
-
 [node name="Misc" type="Node" parent="."]
 
 [node name="WeakFloor" parent="Misc" instance=ExtResource("2_m41ep")]

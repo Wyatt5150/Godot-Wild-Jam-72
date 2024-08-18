@@ -63,6 +63,7 @@ offset_left = 808.0
 offset_top = 1864.0
 offset_right = 858.0
 offset_bottom = 2064.0
+oneWay = false
 
 [node name="Misc" type="Node" parent="."]
 
