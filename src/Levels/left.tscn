@@ -37,6 +37,12 @@ position = Vector2(1412.5, 1291.5)
 scale = Vector2(3.601, 1.911)
 texture = ExtResource("2_rna0f")
 
+[node name="Gradient3" type="Sprite2D" parent="."]
+position = Vector2(2636, 568)
+rotation = 4.71239
+scale = Vector2(0.634637, 1.70001)
+texture = ExtResource("2_rna0f")
+
 [node name="Transitions" type="Node" parent="."]
 
 [node name="t1" type="Area2D" parent="Transitions"]

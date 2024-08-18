@@ -54,7 +54,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func DarkLightHandler(delta):
-	if !is_on_floor(): return 0
 	weightLock -= delta
 	if weightLock > 0:
 		return 0
@@ -96,7 +95,6 @@ func DashHandler(delta):
 	Audio.PlaySFX(Audio.SFX_TRACKS.DASH, true)
 
 func JumpHandler(delta):
-	
 	jumpBuffer -= delta
 	if is_on_floor():
 		timeOffFloor = 0.0
@@ -104,6 +102,8 @@ func JumpHandler(delta):
 		if jumpBuffer > 0.0: Jump()
 	else:
 		timeOffFloor += delta
+		if Input.is_action_just_released("Jump") and velocity.y < 0:
+			velocity.y = 0
 	
 	if timeOffFloor > coyoteTime: jumpLock = true
 	if !Input.is_action_just_pressed("Jump"): return 0
