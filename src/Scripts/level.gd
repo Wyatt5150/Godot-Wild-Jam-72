@@ -32,7 +32,7 @@ func _ready():
 	for i in objects.size():
 		if !saveData[i]:
 			objects[i].queue_free()
-			
+	
 	# set up transitions
 	nextScene = null
 	var i = 0
@@ -51,7 +51,8 @@ func _ready():
 	else:
 		i = connectedScenes.find(PlayerData.curScene)
 	player.position = $Spawns.get_child(i).position
-	
+	print(PlayerData.curScene)
+	print(self.name.to_lower())
 	PlayerData.curScene = self.name.to_lower()
 	
 	# spawn camera
