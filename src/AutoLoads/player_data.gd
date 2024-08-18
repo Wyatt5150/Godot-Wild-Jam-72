@@ -18,6 +18,14 @@ const changeSpeedUpgradeStrength:float = .2
 
 var hasDashUpgrade = false
 
+var devMode = true
+
+func _ready():
+	if devMode:
+		hasDashUpgrade = true
+		darkMax = darkMaxMax
+		lightMax = lightMaxMax
+
 func SetWeight(sweight:int):
 	self.weight = sweight
 	Audio.ChangeSpeed(weight)
